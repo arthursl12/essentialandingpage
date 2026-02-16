@@ -29,14 +29,14 @@ import bhrunaJpg from './bhruna.JPG';
 import arthurJpg from './arthur.jpg';
 
 // Custom WhatsApp Icon Component
-const WhatsappIcon: React.FC<{ size: number }> = ({ size }) => {
+const WhatsappIcon: React.FC<{ size: number, className?: string }> = ({ size, className }) => {
   const sizeClass = `w-[${size}px] h-[${size}px]`; // Directly use pixel values for Tailwind classes
 
   return (
     <img
       src={WhatsappPng}
       alt="WhatsApp"
-      className={`${sizeClass} object-contain`}
+      className={`${sizeClass} object-contain ${className || ''}`}
     />
   );
 };
@@ -428,7 +428,7 @@ const Footer: React.FC = () => {
                <h5 className="text-white font-black uppercase tracking-widest text-[10px] mb-6">Social</h5>
                <ul className="space-y-3 text-white/30 text-sm font-bold">
                  <li><a href="https://www.instagram.com/essentia_socialmedia/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors flex items-center gap-2"><Instagram size={14} /> Instagram</a></li>
-                 <li><a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors flex items-center gap-2"><WhatsappIcon size={14} /> WhatsApp</a></li>
+                 <li><a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors flex items-center gap-2"><WhatsappIcon size={14} className="grayscale opacity-30" /> WhatsApp</a></li>
                </ul>
              </div>
           </div>
