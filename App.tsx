@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <a href="#sobre" className="hover:text-blue-400 transition-colors">Sobre</a>
         </div>
         <a 
-          href="https://wa.me/5500000000000?text=Olá! Gostaria de falar com um especialista sobre meu negócio." 
+          href="https://wa.link/boq0ny" 
           target="_blank"
           rel="noopener noreferrer"
           className="cta-gradient px-7 py-3 rounded-2xl text-white font-bold text-sm hover:scale-105 transition-all shadow-[0_10px_20px_rgba(157,80,187,0.3)] active:scale-95 flex items-center gap-2"
@@ -98,7 +98,9 @@ const Hero: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-6 justify-center md:justify-start">
             <a 
-              href="https://wa.me/5500000000000?text=Olá! Quero transformar meus seguidores em clientes e aumentar meu faturamento!" 
+              href="https://wa.link/boq0ny" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto px-10 py-5 rounded-2xl cta-gradient text-white font-black text-lg flex items-center justify-center gap-3 hover:shadow-[0_0_50px_rgba(0,210,255,0.4)] transition-all transform hover:-translate-y-1"
             >
               <MessageCircle size={24} />
@@ -152,10 +154,10 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Elementos Decorativos de "Growth" */}
-              <div className="absolute top-12 left-12 w-32 glass-card p-3 rounded-2xl border-white/10 text-[10px] font-bold text-green-400 flex items-center gap-2">
+              <div className="absolute top-12 left-12 glass-card p-3 rounded-2xl border-white/10 text-[10px] font-bold text-green-400 flex items-center gap-2">
                 <TrendingUp size={14} /> +30%</div>
-              <div className="absolute bottom-12 right-12 w-32 glass-card p-3 rounded-2xl border-white/10 text-[10px] font-bold text-blue-400 flex items-center gap-2">
-                <BarChart3 size={14} /> Alcance 540k
+              <div className="absolute bottom-12 right-12 glass-card p-3 rounded-2xl border-white/10 text-[10px] font-bold text-blue-400 flex items-center gap-2">
+                <BarChart3 size={14} /> 1M views
               </div>
             </div>
           </div>
@@ -244,7 +246,7 @@ const Management: React.FC = () => {
                         <div className="w-16 h-16 rounded-full border-4 border-blue-500 flex items-center justify-center font-black text-2xl text-white">30%</div>
                         <p className="text-white font-black text-xl leading-tight">Média de aumento no faturamento dos nossos parceiros.</p>
                       </div>
-                      <a href="https://wa.me/5500000000000?text=Olá! Gostaria de uma consultoria sobre a gestão completa das minhas redes sociais." className="flex items-center justify-between w-full bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-400 hover:text-white transition-all group">
+                      <a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-400 hover:text-white transition-all group">
                          Quero contratar
                          <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                       </a>
@@ -318,14 +320,15 @@ const Pricing: React.FC = () => {
                 ))}
               </div>
 
-              <a 
-                href={`https://wa.me/5500000000000?text=Quero contratar o ${p.name}`} 
-                className={`w-full py-5 rounded-2xl font-black text-center transition-all flex items-center justify-center gap-2 ${p.featured ? 'bg-white text-blue-600 hover:shadow-xl' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
-              >
-                Selecionar Plano
-                <ArrowRight size={18} />
-              </a>
-              
+                            <a
+                              href={p.name === "Pack Starter" ? "https://wa.link/jusvbe" : p.name === "Pack Growth" ? "https://wa.link/dje7pw" : "https://wa.link/g3h0lj"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`w-full py-5 rounded-2xl font-black text-center transition-all flex items-center justify-center gap-2 ${p.featured ? 'bg-white text-blue-600 hover:shadow-xl' : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'}`}
+                            >
+                              Selecionar Plano
+                              <ArrowRight size={18} />
+                            </a>              
               {p.featured && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-blue-600 px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl">
                   Mais Recomendado
@@ -410,8 +413,8 @@ const Footer: React.FC = () => {
              <div>
                <h5 className="text-white font-black uppercase tracking-widest text-[10px] mb-6">Social</h5>
                <ul className="space-y-3 text-white/30 text-sm font-bold">
-                 <li><a href="#" className="hover:text-pink-500 transition-colors flex items-center gap-2"><Instagram size={14} /> Instagram</a></li>
-                 <li><a href="#" className="hover:text-green-500 transition-colors flex items-center gap-2"><MessageCircle size={14} /> WhatsApp</a></li>
+                 <li><a href="https://www.instagram.com/essentia_socialmedia/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors flex items-center gap-2"><Instagram size={14} /> Instagram</a></li>
+                 <li><a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors flex items-center gap-2"><MessageCircle size={14} /> WhatsApp</a></li>
                </ul>
              </div>
           </div>
@@ -431,7 +434,7 @@ const Footer: React.FC = () => {
 const WhatsAppFloat: React.FC = () => {
   return (
     <a 
-      href="https://wa.me/5500000000000" 
+      href="https://wa.link/boq0ny" 
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float bg-green-500 p-4 rounded-full text-white shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all active:scale-95 group flex items-center gap-2 overflow-hidden"
@@ -462,11 +465,12 @@ const App: React.FC = () => {
                 <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter leading-none">
                   Pronto para ver o <br/><span className="gradient-text">lucro real</span> do digital?
                 </h2>
-                <a 
-                  href="https://wa.me/5500000000000" 
-                  className="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5 group"
-                >
-                  <MessageCircle size={24} />
+                                <a
+                                  href="https://wa.link/boq0ny"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5 group"
+                                >                  <MessageCircle size={24} />
                   Bora pra cima!
                   <Rocket size={24} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                 </a>
