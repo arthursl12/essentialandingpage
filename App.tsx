@@ -257,7 +257,7 @@ const Management: React.FC = () => {
                    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
                    <div className="absolute bottom-12 left-12 right-12">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-16 h-16 rounded-full border-4 border-blue-500 flex items-center justify-center font-black text-2xl text-white">30%</div>
+                        <div className="w-20 h-16 rounded-full border-4 border-blue-500 flex items-center justify-center font-black text-xl text-white">30%</div>
                         <p className="text-white font-black text-xl leading-tight">Média de aumento no faturamento dos nossos parceiros.</p>
                       </div>
                       <a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between w-full bg-white text-black px-8 py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-400 hover:text-white transition-all group">
