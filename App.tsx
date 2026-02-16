@@ -24,6 +24,9 @@ import {
 
 import logo from './logo.png';
 
+import bhrunaJpg from './bhruna.JPG';
+import arthurJpg from './arthur.jpg';
+
 // Componente de Logo utilizando a imagem fornecida
 const Logo: React.FC<{ className?: string }> = ({ className = "h-12" }) => (
   <div className={`flex items-center gap-2 ${className}`}>
@@ -351,7 +354,7 @@ const About: React.FC = () => {
           <div className="glass-card rounded-[3.5rem] p-12 group hover:bg-white/5 transition-all duration-500 border-white/5">
             <div className="flex flex-col md:flex-row gap-10 items-center">
               <div className="w-40 h-40 rounded-[2.5rem] overflow-hidden border-2 border-white/10 group-hover:border-purple-500 transition-all shadow-2xl rotate-3 group-hover:rotate-0">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=388&auto=format&fit=crop" alt="Bhruna" className="w-full h-full object-cover" />
+                <img src={bhrunaJpg} alt="Bhruna" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-3xl font-black text-white mb-1">Bhruna</h3>
@@ -367,7 +370,7 @@ const About: React.FC = () => {
           <div className="glass-card rounded-[3.5rem] p-12 group hover:bg-white/5 transition-all duration-500 border-white/5">
             <div className="flex flex-col md:flex-row-reverse gap-10 items-center">
               <div className="w-40 h-40 rounded-[2.5rem] overflow-hidden border-2 border-white/10 group-hover:border-blue-500 transition-all shadow-2xl -rotate-3 group-hover:rotate-0">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=387&auto=format&fit=crop" alt="Arthur" className="w-full h-full object-cover" />
+                <img src={arthurJpg} alt="Arthur" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 text-center md:text-right">
                 <h3 className="text-3xl font-black text-white mb-1">Arthur</h3>
