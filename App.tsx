@@ -23,9 +23,23 @@ import {
 } from 'lucide-react';
 
 import logo from './logo.png';
+import WhatsappPng from './wpp.png'; // Import the new WhatsApp PNG
 
 import bhrunaJpg from './bhruna.JPG';
 import arthurJpg from './arthur.jpg';
+
+// Custom WhatsApp Icon Component
+const WhatsappIcon: React.FC<{ size: number }> = ({ size }) => {
+  const sizeClass = `w-[${size}px] h-[${size}px]`; // Directly use pixel values for Tailwind classes
+
+  return (
+    <img
+      src={WhatsappPng}
+      alt="WhatsApp"
+      className={`${sizeClass} object-contain`}
+    />
+  );
+};
 
 // Componente de Logo utilizando a imagem fornecida
 const Logo: React.FC<{ className?: string }> = ({ className = "h-12" }) => (
@@ -71,7 +85,7 @@ const Navbar: React.FC = () => {
           rel="noopener noreferrer"
           className="cta-gradient px-7 py-3 rounded-2xl text-white font-bold text-sm hover:scale-105 transition-all shadow-[0_10px_20px_rgba(157,80,187,0.3)] active:scale-95 flex items-center gap-2"
         >
-          <MessageCircle size={18} />
+          <WhatsappIcon size={18} />
           Falar com Especialista
         </a>
       </div>
@@ -103,7 +117,7 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto px-10 py-5 rounded-2xl cta-gradient text-white font-black text-lg flex items-center justify-center gap-3 hover:shadow-[0_0_50px_rgba(0,210,255,0.4)] transition-all transform hover:-translate-y-1"
             >
-              <MessageCircle size={24} />
+              <WhatsappIcon size={24} />
               Fale com a gente
               <ArrowRight size={22} className="opacity-50" />
             </a>
@@ -414,7 +428,7 @@ const Footer: React.FC = () => {
                <h5 className="text-white font-black uppercase tracking-widest text-[10px] mb-6">Social</h5>
                <ul className="space-y-3 text-white/30 text-sm font-bold">
                  <li><a href="https://www.instagram.com/essentia_socialmedia/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500 transition-colors flex items-center gap-2"><Instagram size={14} /> Instagram</a></li>
-                 <li><a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors flex items-center gap-2"><MessageCircle size={14} /> WhatsApp</a></li>
+                 <li><a href="https://wa.link/boq0ny" target="_blank" rel="noopener noreferrer" className="hover:text-green-500 transition-colors flex items-center gap-2"><WhatsappIcon size={14} /> WhatsApp</a></li>
                </ul>
              </div>
           </div>
@@ -442,7 +456,7 @@ const WhatsAppFloat: React.FC = () => {
       <span className="max-w-0 group-hover:max-w-xs transition-all duration-500 whitespace-nowrap font-black text-xs uppercase tracking-widest pl-0 group-hover:pl-2">
         Atendimento Online
       </span>
-      <MessageCircle size={32} fill="currentColor" />
+      <WhatsappIcon size={32} fill="currentColor" />
     </a>
   );
 };
@@ -470,7 +484,7 @@ const App: React.FC = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5 group"
-                                >                  <MessageCircle size={24} />
+                                >                  <WhatsappIcon size={24} />
                   Bora pra cima!
                   <Rocket size={24} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                 </a>
