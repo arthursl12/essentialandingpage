@@ -446,17 +446,56 @@ const Footer: React.FC = () => {
 };
 
 const WhatsAppFloat: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [initialSequenceDone, setInitialSequenceDone] = useState(false);
+
+  useEffect(() => {
+    // Initial expansion
+    const expandTimeout = setTimeout(() => {
+      setIsExpanded(true);
+    }, 500); // Expand slightly after load
+
+    // Timed retraction
+    const retractTimeout = setTimeout(() => {
+      setIsExpanded(false);
+      setInitialSequenceDone(true); // Mark initial sequence as done after timed retraction
+    }, 5000); // Retract after 5 seconds
+
+    return () => {
+      clearTimeout(expandTimeout);
+      clearTimeout(retractTimeout);
+    };
+  }, []); // Run once on mount
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only retract on scroll if the initial sequence is done (i.e., not during the first 5 seconds)
+      // and if it's currently expanded and user scrolls down
+      if (initialSequenceDone && window.scrollY > 50 && isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [initialSequenceDone, isExpanded]); // Re-run effect if isExpanded or initialSequenceDone changes
+
   return (
     <a 
       href="https://wa.link/boq0ny" 
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-float bg-green-500 p-4 rounded-full text-white shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all active:scale-95 group flex items-center gap-2 overflow-hidden"
+      className={`whatsapp-float bg-green-500 p-4 rounded-full text-white shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all active:scale-95 group flex items-center overflow-hidden ${isExpanded ? 'gap-2' : 'gap-0 justify-center'}`}
+      // Optional: Add onClick to manually expand/retract if needed
+      // onClick={() => setIsExpanded(prev => !prev)}
     >
-      <span className="max-w-0 group-hover:max-w-xs transition-all duration-500 whitespace-nowrap font-black text-xs uppercase tracking-widest pl-0 group-hover:pl-2">
+      <span className={`transition-all duration-500 whitespace-nowrap font-black text-xs uppercase tracking-widest pl-0 overflow-hidden ${isExpanded ? 'max-w-xs pl-2' : 'max-w-0 w-0'}`}>
         Atendimento Online
       </span>
-      <WhatsappIcon size={32} fill="currentColor" />
+      <WhatsappIcon size={32} />
     </a>
   );
 };
