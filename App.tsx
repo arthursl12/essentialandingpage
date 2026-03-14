@@ -36,6 +36,19 @@ import WhatsappPng from './wpp.png'; // Import the new WhatsApp PNG
 import bhrunaJpg from './bhruna.JPG';
 import arthurJpg from './arthur.jpg';
 
+// Import service images from resources
+import trafegoPagoImg from './resources/trafego-pago.jpg';
+import siteInstitucionalImg from './resources/site-institucional.webp';
+import landingPageImg from './resources/landing-page.webp';
+import gestaoRedesImg from './resources/gestao-redes.avif';
+import producaoConteudoImg from './resources/producao-conteudo.jpg';
+import packPostsImg from './resources/pack-posts-mensais.webp';
+import otimizacaoInstaImg from './resources/otimizacao-instagram.jpg';
+import automacaoImg from './resources/automacao.png';
+import consultoriaImg from './resources/consultoria.png';
+import mentoriaImg from './resources/mentoria.webp';
+import googleMeuNegocioImg from './resources/google-meu-negocio.jpg';
+
 // Custom WhatsApp Icon Component
 const WhatsappIcon: React.FC<{ size: number, className?: string }> = ({ size, className }) => {
   const sizeClass = `w-[${size}px] h-[${size}px]`; // Directly use pixel values for Tailwind classes
@@ -117,21 +130,21 @@ const Services: React.FC = () => {
       description: "Coloque seu negócio na frente de quem já quer comprar. Gerenciamos anúncios estratégicos que transformam cliques em faturamento real e escala de vendas.",
       price: "R$ 347/mês",
       startingAt: true,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"
+      image: trafegoPagoImg
     },
     {
       title: "Criação de Site Institucional",
       description: "Sua empresa não precisa de apenas um site, mas de um exemplo de autoridade. Desenvolvemos vitrines digitais de alto nível que transmitem autoridade.",
       price: "R$ 747",
       startingAt: true,
-      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop"
+      image: siteInstitucionalImg
     },
     {
       title: "Landing Page",
       description: "Páginas de alta conversão desenhadas com um único objetivo: transformar visitantes em leads qualificados e dinheiro no bolso.",
       price: "R$ 497",
       startingAt: true,
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2000&auto=format&fit=crop"
+      image: landingPageImg
     },
     {
       title: "Gestão de Redes Sociais",
@@ -139,27 +152,27 @@ const Services: React.FC = () => {
       price: "R$ 1.500/Mês",
       startingAt: true,
       suffix: "(peça seu orçamento)",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+      image: gestaoRedesImg
     },
     {
       title: "Produção de Conteúdo Estratégico",
       description: "Crie autoridade e desejo imediato. Produzimos conteúdos que educam o seu mercado e atraem clientes qualificados de forma orgânica.",
       price: "R$ 497",
       startingAt: true,
-      image: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=2000&auto=format&fit=crop"
+      image: producaoConteudoImg
     },
     {
       title: "Pack de Posts Mensais",
       description: "Tenha um feed profissional e estratégico sem perder tempo. Posts de alto impacto visual e narrativo para manter sua marca ativa.",
       price: "R$ 497",
       startingAt: true,
-      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=2000&auto=format&fit=crop"
+      image: packPostsImg
     },
     {
       title: "Otimização de Perfil no Instagram",
       description: "Pare de perder seguidores para a concorrência. Transformamos seu perfil em uma vitrine magnética, preparada para converter visitantes em clientes.",
       price: "R$ 247",
-      image: "https://images.unsplash.com/photo-1611267254323-4db7b39c732c?q=80&w=2000&auto=format&fit=crop"
+      image: otimizacaoInstaImg
     },
     {
       title: "Automação de Atendimento",
@@ -167,21 +180,21 @@ const Services: React.FC = () => {
       price: "R$ 500",
       startingAt: true,
       suffix: "(peça seu orçamento)",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop"
+      image: automacaoImg
     },
     {
       title: "Consultoria de Marketing",
       description: "Identificamos os gargalos das redes do seu negócio. Uma análise profunda para traçar o caminho exato para você escalar seus resultados.",
       price: "R$ 247",
       suffix: "por sessão",
-      image: "https://images.unsplash.com/photo-1454165833767-02a9e406f0a5?q=80&w=2000&auto=format&fit=crop"
+      image: consultoriaImg
     },
     {
       title: "Mentoria de Marketing",
       description: "Assuma o controle do seu crescimento. Uma orientação personalizada e próxima para empresários que desejam dominar as estratégias das redes.",
       price: "R$ 497",
       suffix: "por sessão",
-      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2000&auto=format&fit=crop"
+      image: mentoriaImg
     },
     {
       title: "Identidade Visual",
@@ -193,7 +206,7 @@ const Services: React.FC = () => {
       title: "Google Meu Negócio",
       description: "Apareça para quem está procurando por você agora. Otimizamos seu perfil para dominar as buscas locais e garantir um fluxo constante.",
       price: "R$ 497 inicial + R$ 97/mês",
-      image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=2000&auto=format&fit=crop"
+      image: googleMeuNegocioImg
     }
   ];
 
