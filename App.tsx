@@ -115,73 +115,84 @@ const Services: React.FC = () => {
     {
       title: "Tráfego Pago",
       description: "Coloque seu negócio na frente de quem já quer comprar. Gerenciamos anúncios estratégicos que transformam cliques em faturamento real e escala de vendas.",
-      price: "890",
+      price: "R$ 347/mês",
+      startingAt: true,
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Criação de Site Institucional",
       description: "Sua empresa não precisa de apenas um site, mas de um exemplo de autoridade. Desenvolvemos vitrines digitais de alto nível que transmitem autoridade.",
-      price: "2.500",
+      price: "R$ 747",
+      startingAt: true,
       image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Landing Page",
       description: "Páginas de alta conversão desenhadas com um único objetivo: transformar visitantes em leads qualificados e dinheiro no bolso.",
-      price: "1.200",
+      price: "R$ 497",
+      startingAt: true,
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Gestão de Redes Sociais",
       description: "Pare de apenas 'postar' e comece a dominar o seu nicho. Planejamos e gerenciamos sua presença digital para que sua marca seja a primeira escolha.",
-      price: "1.500",
+      price: "R$ 1.500/Mês",
+      startingAt: true,
+      suffix: "(peça seu orçamento)",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      title: "Produção de Conteúdo",
+      title: "Produção de Conteúdo Estratégico",
       description: "Crie autoridade e desejo imediato. Produzimos conteúdos que educam o seu mercado e atraem clientes qualificados de forma orgânica.",
-      price: "970",
+      price: "R$ 497",
+      startingAt: true,
       image: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Pack de Posts Mensais",
       description: "Tenha um feed profissional e estratégico sem perder tempo. Posts de alto impacto visual e narrativo para manter sua marca ativa.",
-      price: "497",
+      price: "R$ 497",
+      startingAt: true,
       image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      title: "Otimização de Perfil",
+      title: "Otimização de Perfil no Instagram",
       description: "Pare de perder seguidores para a concorrência. Transformamos seu perfil em uma vitrine magnética, preparada para converter visitantes em clientes.",
-      price: "350",
+      price: "R$ 247",
       image: "https://images.unsplash.com/photo-1611267254323-4db7b39c732c?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Automação de Atendimento",
       description: "Escalabilidade sem perda de qualidade. Configuramos fluxos inteligentes que respondem, qualificam e vendem para você 24h por dia.",
-      price: "600",
+      price: "R$ 500",
+      startingAt: true,
+      suffix: "(peça seu orçamento)",
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Consultoria de Marketing",
       description: "Identificamos os gargalos das redes do seu negócio. Uma análise profunda para traçar o caminho exato para você escalar seus resultados.",
-      price: "750",
+      price: "R$ 247",
+      suffix: "por sessão",
       image: "https://images.unsplash.com/photo-1454165833767-02a9e406f0a5?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Mentoria de Marketing",
       description: "Assuma o controle do seu crescimento. Uma orientação personalizada e próxima para empresários que desejam dominar as estratégias das redes.",
-      price: "1.900",
+      price: "R$ 497",
+      suffix: "por sessão",
       image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Identidade Visual",
       description: "Não seja apenas mais um. Criamos marcas memoráveis que transmitem o valor real do seu serviço e aumentam sua percepção de valor.",
-      price: "1.200",
+      price: "R$ 597",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
     },
     {
       title: "Google Meu Negócio",
       description: "Apareça para quem está procurando por você agora. Otimizamos seu perfil para dominar as buscas locais e garantir um fluxo constante.",
-      price: "400",
+      price: "R$ 497 inicial + R$ 97/mês",
       image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=2000&auto=format&fit=crop"
     }
   ];
@@ -209,8 +220,19 @@ const Services: React.FC = () => {
                 </p>
                 <div className="pt-6 border-t border-white/5 flex items-center justify-between mt-auto">
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">A partir de</span>
-                    <span className="text-2xl font-black text-white">R$ {s.price}</span>
+                    {s.price ? (
+                      <>
+                        <span className="text-[10px] font-black text-white/30 uppercase tracking-widest min-h-[1.25rem]">
+                          {s.startingAt ? "A partir de" : "Investimento"}
+                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-xl font-black text-white">{s.price}</span>
+                          {s.suffix && <span className="text-[10px] font-bold text-white/40 mt-1">{s.suffix}</span>}
+                        </div>
+                      </>
+                    ) : (
+                      <span className="text-xs font-black text-blue-400 uppercase tracking-widest">Sob Consulta</span>
+                    )}
                   </div>
                   <a 
                     href="https://wa.link/boq0ny" 
