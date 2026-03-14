@@ -103,6 +103,7 @@ const Navbar: React.FC = () => {
           <a href={isHome ? "#gestao" : "/#gestao"} className="hover:text-blue-400 transition-colors">Gestão</a>
           <a href={isHome ? "#packs" : "/#packs"} className="hover:text-blue-400 transition-colors">Packs</a>
           <Link to="/servicos" className={`hover:text-blue-400 transition-colors ${location.pathname === '/servicos' ? 'text-blue-400' : ''}`}>Serviços</Link>
+          <a href="https://www.behance.net/essentiasocialmedia" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Portfólio</a>
           <a href={isHome ? "#sobre" : "/#sobre"} className="hover:text-blue-400 transition-colors">Sobre</a>
         </div>
         <a 
@@ -594,6 +595,7 @@ const Footer: React.FC = () => {
                  <li><Link to="/#gestao" className="hover:text-blue-400 transition-colors">Gestão</Link></li>
                  <li><Link to="/#packs" className="hover:text-blue-400 transition-colors">Packs</Link></li>
                  <li><Link to="/servicos" className="hover:text-blue-400 transition-colors">Serviços</Link></li>
+                 <li><a href="https://www.behance.net/essentiasocialmedia" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Portfólio</a></li>
                  <li><Link to="/#sobre" className="hover:text-blue-400 transition-colors">Agência</Link></li>
                </ul>
              </div>
