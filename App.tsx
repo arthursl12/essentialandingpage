@@ -1,6 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { 
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation
+} from 'react-router-dom';
+import { 
   Instagram, 
   MessageCircle, 
   Rocket, 
@@ -19,7 +26,8 @@ import {
   Youtube,
   Facebook,
   Search,
-  Play
+  Play,
+  ShoppingBag
 } from 'lucide-react';
 
 import logo from './logo.png';
@@ -63,6 +71,8 @@ const LogoIcon: React.FC<{ className?: string }> = ({ className = "w-10 h-10" })
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -73,11 +83,14 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass-card py-3 shadow-2xl backdrop-blur-xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Logo className="h-10 md:h-12" />
-        <div className="hidden md:flex gap-10 text-white/70 font-semibold tracking-wide text-sm uppercase">
-          <a href="#gestao" className="hover:text-blue-400 transition-colors">Gestão</a>
-          <a href="#packs" className="hover:text-blue-400 transition-colors">Packs</a>
-          <a href="#sobre" className="hover:text-blue-400 transition-colors">Sobre</a>
+        <Link to="/">
+          <Logo className="h-10 md:h-12" />
+        </Link>
+        <div className="hidden md:flex gap-10 text-white/70 font-semibold tracking-wide text-sm uppercase items-center">
+          <a href={isHome ? "#gestao" : "/#gestao"} className="hover:text-blue-400 transition-colors">Gestão</a>
+          <a href={isHome ? "#packs" : "/#packs"} className="hover:text-blue-400 transition-colors">Packs</a>
+          <Link to="/servicos" className={`hover:text-blue-400 transition-colors ${location.pathname === '/servicos' ? 'text-blue-400' : ''}`}>Serviços</Link>
+          <a href={isHome ? "#sobre" : "/#sobre"} className="hover:text-blue-400 transition-colors">Sobre</a>
         </div>
         <a 
           href="https://wa.link/boq0ny" 
@@ -90,6 +103,76 @@ const Navbar: React.FC = () => {
         </a>
       </div>
     </nav>
+  );
+};
+
+const Services: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const serviceList = [
+    {
+      title: "Identidade Visual Premium",
+      description: "Criação de logotipo, paleta de cores e tipografia exclusiva para sua marca se destacar. Transformamos sua essência em um design memorável e profissional.",
+      price: "1.200",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Consultoria de Perfil",
+      description: "Análise profunda do seu Instagram com plano de ação prático para conversão. Ajustamos sua bio, destaques e estratégia de conteúdo para atrair o público certo.",
+      price: "450",
+      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c20a?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Gestão de Tráfego Pago",
+      description: "Campanhas otimizadas no Meta Ads para escalar suas vendas e leads qualificados. Colocamos sua marca na frente de quem realmente quer comprar de você.",
+      price: "890",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <div className="pt-32 pb-20 nebula-bg min-h-screen">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <span className="text-blue-400 font-black uppercase tracking-[0.3em] text-xs mb-6 block">Soluções Essentia</span>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">Nossos <span className="gradient-text">Serviços.</span></h2>
+          <p className="text-white/40 text-xl font-medium max-w-2xl mx-auto">Escolha a solução ideal para o momento atual do seu negócio.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {serviceList.map((s, i) => (
+            <div key={i} className="glass-card rounded-[3rem] overflow-hidden group hover:border-blue-500/30 transition-all duration-500 flex flex-col">
+              <div className="h-48 overflow-hidden relative">
+                <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent opacity-60"></div>
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="text-2xl font-black text-white mb-4">{s.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed mb-8 flex-1">
+                  {s.description}
+                </p>
+                <div className="pt-6 border-t border-white/5 flex items-center justify-between mt-auto">
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">A partir de</span>
+                    <span className="text-2xl font-black text-white">R$ {s.price}</span>
+                  </div>
+                  <a 
+                    href="https://wa.link/boq0ny" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-4 rounded-2xl bg-white/5 text-white hover:bg-blue-500 hover:text-white transition-all group/btn"
+                  >
+                    <ArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -419,9 +502,10 @@ const Footer: React.FC = () => {
              <div>
                <h5 className="text-white font-black uppercase tracking-widest text-[10px] mb-6">Navegação</h5>
                <ul className="space-y-3 text-white/30 text-sm font-bold">
-                 <li><a href="#gestao" className="hover:text-blue-400 transition-colors">Gestão</a></li>
-                 <li><a href="#packs" className="hover:text-blue-400 transition-colors">Packs</a></li>
-                 <li><a href="#sobre" className="hover:text-blue-400 transition-colors">Agência</a></li>
+                 <li><Link to="/#gestao" className="hover:text-blue-400 transition-colors">Gestão</Link></li>
+                 <li><Link to="/#packs" className="hover:text-blue-400 transition-colors">Packs</Link></li>
+                 <li><Link to="/servicos" className="hover:text-blue-400 transition-colors">Serviços</Link></li>
+                 <li><Link to="/#sobre" className="hover:text-blue-400 transition-colors">Agência</Link></li>
                </ul>
              </div>
              <div>
@@ -500,10 +584,9 @@ const WhatsAppFloat: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <>
       <Hero />
       <Management />
       <Pricing />
@@ -518,12 +601,13 @@ const App: React.FC = () => {
                 <h2 className="text-4xl md:text-7xl font-black text-white mb-10 tracking-tighter leading-none">
                   Pronto para ver o <br/><span className="gradient-text">lucro real</span> do digital?
                 </h2>
-                                <a
-                                  href="https://wa.link/boq0ny"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5 group"
-                                >                  <WhatsappIcon size={24} />
+                <a
+                  href="https://wa.link/boq0ny"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-4 bg-white text-black px-12 py-6 rounded-[2rem] font-black text-xl uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5 group"
+                >
+                  <WhatsappIcon size={24} />
                   Bora pra cima!
                   <Rocket size={24} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
                 </a>
@@ -533,9 +617,23 @@ const App: React.FC = () => {
       </section>
 
       <About />
-      <Footer />
-      <WhatsAppFloat />
-    </div>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/servicos" element={<Services />} />
+        </Routes>
+        <Footer />
+        <WhatsAppFloat />
+      </div>
+    </Router>
   );
 };
 
