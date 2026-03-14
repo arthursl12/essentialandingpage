@@ -113,22 +113,76 @@ const Services: React.FC = () => {
 
   const serviceList = [
     {
-      title: "Identidade Visual Premium",
-      description: "Criação de logotipo, paleta de cores e tipografia exclusiva para sua marca se destacar. Transformamos sua essência em um design memorável e profissional.",
+      title: "Tráfego Pago",
+      description: "Coloque seu negócio na frente de quem já quer comprar. Gerenciamos anúncios estratégicos que transformam cliques em faturamento real e escala de vendas.",
+      price: "890",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Criação de Site Institucional",
+      description: "Sua empresa não precisa de apenas um site, mas de um exemplo de autoridade. Desenvolvemos vitrines digitais de alto nível que transmitem autoridade.",
+      price: "2.500",
+      image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Landing Page",
+      description: "Páginas de alta conversão desenhadas com um único objetivo: transformar visitantes em leads qualificados e dinheiro no bolso.",
+      price: "1.200",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Gestão de Redes Sociais",
+      description: "Pare de apenas 'postar' e comece a dominar o seu nicho. Planejamos e gerenciamos sua presença digital para que sua marca seja a primeira escolha.",
+      price: "1.500",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Produção de Conteúdo",
+      description: "Crie autoridade e desejo imediato. Produzimos conteúdos que educam o seu mercado e atraem clientes qualificados de forma orgânica.",
+      price: "970",
+      image: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Pack de Posts Mensais",
+      description: "Tenha um feed profissional e estratégico sem perder tempo. Posts de alto impacto visual e narrativo para manter sua marca ativa.",
+      price: "497",
+      image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Otimização de Perfil",
+      description: "Pare de perder seguidores para a concorrência. Transformamos seu perfil em uma vitrine magnética, preparada para converter visitantes em clientes.",
+      price: "350",
+      image: "https://images.unsplash.com/photo-1611267254323-4db7b39c732c?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Automação de Atendimento",
+      description: "Escalabilidade sem perda de qualidade. Configuramos fluxos inteligentes que respondem, qualificam e vendem para você 24h por dia.",
+      price: "600",
+      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Consultoria de Marketing",
+      description: "Identificamos os gargalos das redes do seu negócio. Uma análise profunda para traçar o caminho exato para você escalar seus resultados.",
+      price: "750",
+      image: "https://images.unsplash.com/photo-1454165833767-02a9e406f0a5?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Mentoria de Marketing",
+      description: "Assuma o controle do seu crescimento. Uma orientação personalizada e próxima para empresários que desejam dominar as estratégias das redes.",
+      price: "1.900",
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      title: "Identidade Visual",
+      description: "Não seja apenas mais um. Criamos marcas memoráveis que transmitem o valor real do seu serviço e aumentam sua percepção de valor.",
       price: "1.200",
       image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      title: "Consultoria de Perfil",
-      description: "Análise profunda do seu Instagram com plano de ação prático para conversão. Ajustamos sua bio, destaques e estratégia de conteúdo para atrair o público certo.",
-      price: "450",
-      image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c20a?q=80&w=2000&auto=format&fit=crop"
-    },
-    {
-      title: "Gestão de Tráfego Pago",
-      description: "Campanhas otimizadas no Meta Ads para escalar suas vendas e leads qualificados. Colocamos sua marca na frente de quem realmente quer comprar de você.",
-      price: "890",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop"
+      title: "Google Meu Negócio",
+      description: "Apareça para quem está procurando por você agora. Otimizamos seu perfil para dominar as buscas locais e garantir um fluxo constante.",
+      price: "400",
+      image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?q=80&w=2000&auto=format&fit=crop"
     }
   ];
 
