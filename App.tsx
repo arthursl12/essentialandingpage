@@ -27,7 +27,9 @@ import {
   Facebook,
   Search,
   Play,
-  ShoppingBag
+  ShoppingBag,
+  Menu,
+  X
 } from 'lucide-react';
 
 import logo from './logo.png';
@@ -84,6 +86,7 @@ const LogoIcon: React.FC<{ className?: string }> = ({ className = "w-10 h-10" })
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
 
@@ -93,12 +96,16 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'glass-card py-3 shadow-2xl backdrop-blur-xl' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || isOpen ? 'glass-card py-3 shadow-2xl backdrop-blur-xl' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link to="/">
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <Logo className="h-10 md:h-12" />
         </Link>
+        
+        {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-white/70 font-semibold tracking-wide text-sm uppercase items-center">
           <a href={isHome ? "#gestao" : "/#gestao"} className="hover:text-blue-400 transition-colors">Gestão</a>
           <a href={isHome ? "#packs" : "/#packs"} className="hover:text-blue-400 transition-colors">Packs</a>
@@ -106,15 +113,47 @@ const Navbar: React.FC = () => {
           <a href="https://www.behance.net/essentiasocialmedia" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">Portfólio</a>
           <a href={isHome ? "#sobre" : "/#sobre"} className="hover:text-blue-400 transition-colors">Sobre</a>
         </div>
-        <a 
-          href="https://wa.link/boq0ny" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cta-gradient px-7 py-3 rounded-2xl text-white font-bold text-sm hover:scale-105 transition-all shadow-[0_10px_20px_rgba(157,80,187,0.3)] active:scale-95 flex items-center gap-2"
-        >
-          <WhatsappIcon size={18} />
-          Falar com Especialista
-        </a>
+
+        <div className="flex items-center gap-4">
+          <a 
+            href="https://wa.link/boq0ny" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex cta-gradient px-7 py-3 rounded-2xl text-white font-bold text-sm hover:scale-105 transition-all shadow-[0_10px_20px_rgba(157,80,187,0.3)] active:scale-95 items-center gap-2"
+          >
+            <WhatsappIcon size={18} />
+            Falar com Especialista
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={toggleMenu}
+            className="md:hidden text-white p-2 hover:bg-white/10 rounded-xl transition-colors"
+          >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 border-t border-white/5' : 'max-h-0 opacity-0'}`}>
+        <div className="flex flex-col gap-4 p-8 text-white/70 font-semibold tracking-wide text-sm uppercase bg-[#050505]/95 backdrop-blur-xl">
+          <a href={isHome ? "#gestao" : "/#gestao"} onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Gestão</a>
+          <a href={isHome ? "#packs" : "/#packs"} onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Packs</a>
+          <Link to="/servicos" onClick={toggleMenu} className={`hover:text-blue-400 transition-colors py-3 border-b border-white/5 ${location.pathname === '/servicos' ? 'text-blue-400' : ''}`}>Serviços</Link>
+          <a href="https://www.behance.net/essentiasocialmedia" target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Portfólio</a>
+          <a href={isHome ? "#sobre" : "/#sobre"} onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Sobre</a>
+          <a 
+            href="https://wa.link/boq0ny" 
+            onClick={toggleMenu}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sm:hidden mt-4 cta-gradient px-7 py-4 rounded-2xl text-white font-bold text-center flex items-center justify-center gap-2"
+          >
+            <WhatsappIcon size={20} />
+            Falar com Especialista
+          </a>
+        </div>
       </div>
     </nav>
   );
