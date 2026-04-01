@@ -717,6 +717,75 @@ const WhatsAppFloat: React.FC = () => {
   );
 };
 
+const CoursePopup: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const hasSeenPopup = sessionStorage.getItem('hasSeenCoursePopup');
+    if (!hasSeenPopup) {
+      setIsVisible(true);
+    }
+  }, []);
+
+  const closePopup = () => {
+    setIsVisible(false);
+    sessionStorage.setItem('hasSeenCoursePopup', 'true');
+  };
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+      <div 
+        className="absolute inset-0 bg-[#050505]/80 backdrop-blur-sm animate-in fade-in duration-500"
+        onClick={closePopup}
+      ></div>
+      
+      <div className="relative glass-card max-w-lg w-full p-8 md:p-12 rounded-[3rem] border-white/10 shadow-[0_0_50px_rgba(157,80,187,0.2)] text-center animate-in zoom-in duration-500">
+        <button 
+          onClick={closePopup}
+          className="absolute top-6 right-6 text-white/30 hover:text-white transition-colors"
+        >
+          <X size={24} />
+        </button>
+
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] font-black tracking-[0.2em] mb-6 uppercase">
+          <Sparkles size={14} className="text-purple-400" />
+          <span>Oportunidade Única</span>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter leading-tight">
+          Curso <span className="gradient-text">Insta Descomplicado</span> <br/>LIBERADO!
+        </h2>
+        
+        <p className="text-white/50 text-lg mb-10 font-medium leading-relaxed">
+          Domine o Instagram e transforme seu perfil em uma máquina de vendas com a nossa estratégia exclusiva.
+        </p>
+
+        <div className="flex flex-col gap-4">
+          <a 
+            href="https://instadescomplicado.essentiamarketing.com.br/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-5 rounded-2xl cta-gradient text-white font-black text-lg flex items-center justify-center gap-3 hover:shadow-[0_0_30px_rgba(157,80,187,0.4)] transition-all transform hover:scale-[1.02]"
+            onClick={closePopup}
+          >
+            Quero Acessar Agora
+            <ArrowRight size={22} />
+          </a>
+          
+          <button 
+            onClick={closePopup}
+            className="text-white/30 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors mt-2"
+          >
+            Talvez mais tarde
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Home: React.FC = () => {
   return (
     <>
@@ -765,6 +834,7 @@ const App: React.FC = () => {
         </Routes>
         <Footer />
         <WhatsAppFloat />
+        <CoursePopup />
       </div>
     </Router>
   );
