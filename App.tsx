@@ -107,6 +107,7 @@ const Navbar: React.FC = () => {
         
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-10 text-white/70 font-semibold tracking-wide text-sm uppercase items-center">
+          <a href="https://instadescomplicado.essentiamarketing.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors text-purple-400">Curso</a>
           <a href={isHome ? "#gestao" : "/#gestao"} className="hover:text-blue-400 transition-colors">Gestão</a>
           <a href={isHome ? "#packs" : "/#packs"} className="hover:text-blue-400 transition-colors">Packs</a>
           <Link to="/servicos" className={`hover:text-blue-400 transition-colors ${location.pathname === '/servicos' ? 'text-blue-400' : ''}`}>Serviços</Link>
@@ -138,6 +139,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Menu Dropdown */}
       <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 border-t border-white/5' : 'max-h-0 opacity-0'}`}>
         <div className="flex flex-col gap-4 p-8 text-white/70 font-semibold tracking-wide text-sm uppercase bg-[#050505]/95 backdrop-blur-xl">
+          <a href="https://instadescomplicado.essentiamarketing.com.br/" target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5 text-purple-400">Curso</a>
           <a href={isHome ? "#gestao" : "/#gestao"} onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Gestão</a>
           <a href={isHome ? "#packs" : "/#packs"} onClick={toggleMenu} className="hover:text-blue-400 transition-colors py-3 border-b border-white/5">Packs</a>
           <Link to="/servicos" onClick={toggleMenu} className={`hover:text-blue-400 transition-colors py-3 border-b border-white/5 ${location.pathname === '/servicos' ? 'text-blue-400' : ''}`}>Serviços</Link>
@@ -631,6 +633,7 @@ const Footer: React.FC = () => {
              <div>
                <h5 className="text-white font-black uppercase tracking-widest text-[10px] mb-6">Navegação</h5>
                <ul className="space-y-3 text-white/30 text-sm font-bold">
+                 <li><a href="https://instadescomplicado.essentiamarketing.com.br/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors text-purple-400">Curso</a></li>
                  <li><Link to="/#gestao" className="hover:text-blue-400 transition-colors">Gestão</Link></li>
                  <li><Link to="/#packs" className="hover:text-blue-400 transition-colors">Packs</Link></li>
                  <li><Link to="/servicos" className="hover:text-blue-400 transition-colors">Serviços</Link></li>
