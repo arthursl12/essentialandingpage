@@ -834,7 +834,7 @@ const App: React.FC = () => {
         </Routes>
         <Footer />
         <WhatsAppFloat />
-        <CoursePopup />
+        {/* <CoursePopup /> */}
       </div>
     </Router>
   );
